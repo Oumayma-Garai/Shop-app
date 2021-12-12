@@ -1,28 +1,37 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, Button } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Button,
+  TouchableOpacity,
+} from "react-native";
 import Colors from "../../constants/Colors";
 const ProductItem = (props) => {
   return (
-    <View style={styles.product}>
-      <Image source={{ uri: props.image }} style={styles.image} />
-      <View style={styles.details}>
-        <Text style={styles.title}>{props.title} </Text>
-        <Text style={styles.price}>{props.price}</Text>
-      </View>
+    <TouchableOpacity onPress={props.onViewDetail}>
+      <View style={styles.product}>
+        <Image source={{ uri: props.image }} style={styles.image} />
+        <View style={styles.details}>
+          <Text style={styles.title}>{props.title} </Text>
+          <Text style={styles.price}>{props.price}</Text>
+        </View>
 
-      <View style={styles.actions}>
-        <Button
-          color={Colors.primary}
-          title="View details"
-          onPress={props.onViewDetail}
-        />
-        <Button
-          color={Colors.primary}
-          title="To cart"
-          onPress={props.onAddToCart}
-        />
+        <View style={styles.actions}>
+          <Button
+            color={Colors.primary}
+            title="View details"
+            onPress={props.onViewDetail}
+          />
+          <Button
+            color={Colors.primary}
+            title="To cart"
+            onPress={props.onAddToCart}
+          />
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 const styles = StyleSheet.create({
